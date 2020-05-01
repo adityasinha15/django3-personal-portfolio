@@ -1,8 +1,0 @@
-<h1>All Blogs</h1>
-<h2>Aditya has written {{blogs.count}} blogs{{blogs.count|pluralize}}</h2>
-{% for blog in blogs %}
-
-    <a href="{% url 'blog:detail' blog.id %}"> <h2>{{ blog.title }}</h2> </a>
-    <p>{{ blog.date|date:'M D Y'}} {{blog.time}}</p>
-    <p>{{ blog.text|striptags|truncatechars:100 }}</p>
-{% endfor %}
