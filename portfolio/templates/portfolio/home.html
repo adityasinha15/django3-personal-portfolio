@@ -1,0 +1,191 @@
+{% extends 'portfolio/page/index.html'  %}
+
+
+{% load static %}
+{% block image %}
+<img class='rounded-circle masthead-avatar mb-5'  src= "{% static 'portfolio/aditya.jpg' %}" alt="" />
+{% endblock %}
+
+{% block name %}
+{{'Aditya Sinha'}}
+{% endblock %}
+
+{% block name1 %}
+{{'Aditya Sinha'}}
+{% endblock %}
+
+{% block skills %}
+{{ 'Learn-Code-Explore' }}
+{%  endblock %}
+
+{% block resume %}
+ {% static 'portfolio/aditya_resume_online.pdf' %}
+{% endblock %}
+
+{%block title%}
+{{ 'Aditya Sinha-Portfolio' }}
+{% endblock %}
+<a href="{% static 'portfolio/aditya_resume_online.pdf' %}">Resume</a>
+
+{% block blog %}
+{{ 'http://www.howto-solution.com' }}
+{% endblock %}
+
+{% block github %}
+{{ 'https://github.com/adityasinha15/' }}
+{% endblock %}
+
+{% block linkedin %}
+{{ 'https://www.linkedin.com/in/aditya-sinha-066507148/' }}
+{% endblock %}
+
+{% block education %}
+    {% block graduation %}
+
+        {% block graduationYear %}
+            {{'2016-2020'}}
+        {% endblock %}
+
+        {% block graduationCourse %}
+            {{"B.Tech "}}
+        {% endblock %}
+
+        {% block graduationUniversity%}
+            {{'Dr.APJ Abdul Kalam Technical University'}}
+        {% endblock %}
+
+        {% block graduationPer %}
+            {{'84%'}}
+        {% endblock%}
+
+    {% endblock %}
+
+    {% block 12th %}
+
+        {% block 12Year %}
+            {{'2016'}}
+        {% endblock %}
+
+        {% block 12Course %}
+            {{"12th "}}
+        {% endblock %}
+
+        {% block 12University%}
+            {{'Central Board of Secondary Education'}}
+        {% endblock %}
+
+        {% block 12Per %}
+            {{'87%'}}
+        {% endblock%}
+
+    {% endblock %}
+
+    {% block 10th %}
+
+        {% block 10Year %}
+            {{'2014'}}
+        {% endblock %}
+
+        {% block 10Course %}
+            {{"10th "}}
+        {% endblock %}
+
+        {% block 10University%}
+            {{'Central Board of Secondary Education'}}
+        {% endblock %}
+
+        {% block 10Per %}
+            {{'8.2 CGPA'}}
+        {% endblock%}
+
+    {% endblock %}
+{% endblock %}
+
+
+{% block skill %}
+    {% block skill1 %}
+        {{' Python '}}
+    {% endblock %}
+
+     {% block skill2 %}
+        {{' Machine Learning'}}
+    {% endblock %}
+
+    {%  block skill3 %}
+        {{' Data Analytics '}}
+    {% endblock %}
+
+    {%  block skill4 %}
+        {{' Digital Marketing '}}
+    {% endblock %}
+
+    {% block skill5 %}
+        {{' JavaScipt '}}
+    {% endblock %}
+
+     {%  block skill6 %}
+        {{' Django'}}
+    {% endblock %}
+
+    {% block skill7 %}
+        {{' PHP'}}
+    {% endblock %}
+
+    {%  block skill8 %}
+        {{' HTML & CSS'}}
+    {% endblock %}
+{% endblock %}
+
+{% block p %}
+
+    {% for project in projects %}
+
+        <div class="col-md-6 col-lg-4 mb-5">
+            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#{{project.title}}">
+                <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                    <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                </div>
+                <img class="img-fluid" src="{{project.image.url}} " alt="" />
+            </div>
+        </div>
+
+
+    {% endfor %}
+
+{% endblock %}
+
+{% block t %}
+
+{% for project in projects %}
+
+<div class="portfolio-modal modal fade" id="{{project.title}}" tabindex="-1" role="dialog" aria-labelledby="{{project.title}}" aria-hidden="true">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content">
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"><i class="fas fa-times"></i></span>
+                    </button>
+                    <div class="modal-body text-center">
+                        <div class="container">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-8">
+                                    <!-- Portfolio Modal - Title-->
+                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">{{project.title}}</h2>
+                                    <!-- Icon Divider-->
+                                    <div class="divider-custom">
+                                        <div class="divider-custom-line"></div>
+                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                        <div class="divider-custom-line"></div>
+                                    </div>
+                                    <!-- Portfolio Modal - Image--><img class="img-fluid rounded mb-5" src="#" alt="" /><!-- Portfolio Modal - Text-->
+                                    <p class="mb-5">{{project.description|safe}}</p>
+                                    <button class="btn btn-primary" href="#" data-dismiss="modal"><i class="fas fa-times fa-fw"></i>Close Window</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{% endfor %}
+{% endblock %}
