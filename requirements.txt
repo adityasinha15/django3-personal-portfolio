@@ -1,6 +1,6 @@
 click==7.1.1
 cmake==3.17.1
-Django==2.2.12
+Django==2.2.22
 dlib==18.17.100
 face-recognition-models==0.3.0
 numpy==1.18.2
